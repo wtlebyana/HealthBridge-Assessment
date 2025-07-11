@@ -1,0 +1,16 @@
+.vehicle-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px; // Adds space between each form-field
+}
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 70%;
+  max-width: 400px; // control width
+  padding: 1rem;
+  height: auto;
+}

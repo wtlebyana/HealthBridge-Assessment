@@ -1,0 +1,45 @@
+ <div>
+   <button mat-raised-button color="primary" [routerLink]="'add-vehicle'">
+     Add Vehicle
+   </button>
+
+ </div>
+
+  <ng-container *ngIf="vehicles$ | async as vehicles; else noData">
+    <section class="container-grid">
+      <div class="filters-container">
+        <app-vehicle-filter-component (manufacturerFilter)="onMakeFilter($event)"
+                                        (bodyFilter)="onBodyFilter($event)"
+                                        (priceFilter)="onPriceFilter($event)"></app-vehicle-filter-component>
+      </div>
+
+      <div class="vehicle-list-container">
+        <div class="vehicle-grid">
+          <mat-card *ngFor="let v of vehicles" class="vehicle-card">
+            <mat-card-content class="vehicle-content">
+              <div class="vehicle-image">
+                <img [src]="v.imageUrl" alt="{{ v.model }}" />
+              </div>
+
+              <div class="vehicle-details">
+                <p><strong>Make:</strong> {{ v.make }}</p>
+                <p><strong>Model:</strong> {{ v.model }}</p>
+                <p><strong>Price:</strong> R {{ v.price }}</p>
+                <p><strong>Body:</strong> {{ v.body }}</p>
+                <p><strong>Year:</strong> {{ v.year }}</p>
+
+              </div>
+
+              <div class="add-to-cart-button">
+                <button mat-raised-button color="primary" (click)="addToCart(v)" >Add to Cart</button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+
+  <ng-template #noData>
+    <p class="no-data-text">No vehicles found.</p>
+  </ng-template>

@@ -1,0 +1,45 @@
+.fixed-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: lightgray;
+}
+
+.cart-button {
+  padding-right: 1rem;
+}
+
+
+.fixed-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.cart-button {
+  margin-right: 1rem;
+}
+
+.fixed-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+::ng-deep .mat-badge-content {
+  display: inline-block !important;
+}
+
+

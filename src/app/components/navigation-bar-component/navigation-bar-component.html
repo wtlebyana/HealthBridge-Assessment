@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="fixed-toolbar">
+  <span class="bold-title">BROWSE MOTOR VEHICLES</span>
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="cart-button"
+    [matBadge]="cartItems.length"
+    matBadgeColor="warn"
+    matBadgeHidden="false"
+    (click)="openCartDialog()"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>

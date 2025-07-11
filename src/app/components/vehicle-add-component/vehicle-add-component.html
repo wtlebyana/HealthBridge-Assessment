@@ -1,0 +1,50 @@
+<div style="padding-top: 3rem; padding-bottom: 3rem">
+
+</div>
+<mat-card style="padding: 1rem">
+  <mat-card-title style="padding-left: 3rem; padding-top: 1rem">Add Vehicle</mat-card-title>
+  <mat-card-content style="padding: 1rem">
+    <form #vehicleForm="ngForm" (ngSubmit)="addVehicle(vehicleForm)" class="vehicle-form">
+      <mat-form-field >
+        <mat-label>Make</mat-label>
+        <input matInput name="make" [(ngModel)]="vehicle.make" required />
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Model</mat-label>
+        <input matInput name="model" [(ngModel)]="vehicle.model" required />
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Body</mat-label>
+        <mat-select name="body" [(ngModel)]="vehicle.body" required>
+          <mat-option value="SUV">SUV</mat-option>
+          <mat-option value="Sedan">Sedan</mat-option>
+          <mat-option value="Hatchback">Hatchback</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput type="number" name="price" [(ngModel)]="vehicle.price" required />
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Image URL</mat-label>
+        <input matInput name="imageUrl" [(ngModel)]="vehicle.imageUrl" required />
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Year</mat-label>
+        <input matInput name="year" [(ngModel)]="vehicle.year" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Add Vehicle</button>
+
+    </form>
+    <button mat-raised-button color="primary"  [routerLink]="''">
+      BACK
+    </button>
+  </mat-card-content>
+
+</mat-card>

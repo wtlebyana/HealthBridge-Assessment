@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>VEHICLE CART</h2>
+
+<mat-card class="cart-dialog">
+  <mat-dialog-content *ngIf="cartItemsGrouped.length > 0; else emptyCart">
+    <mat-list>
+      <mat-card style="padding: 1rem; width: auto">
+
+
+      <mat-list-item *ngFor="let item of cartItemsGrouped; index as i" class="cart-item" style="height: auto; width: auto;  margin-bottom: 1rem;">
+        <div class="cart-item-container">
+          <div class="cart-item-details">
+            <img [src]="item.vehicle.imageUrl" alt="{{ item.vehicle.model }}" />
+            <div>
+              <div class="item-name"><strong>{{ item.vehicle.make }} {{ item.vehicle.model }}</strong></div>
+              <div class="item-price">R {{ item.vehicle.price }}</div>
+              <div class="item-quantity">
+                Quantity: {{ item.quantity }}
+                <button mat-raised-button color="primary" > + </button>
+                <button mat-raised-button color="accent" > <p> -</p> </button>
+              </div>
+            </div>
+          </div>
+
+          <button mat-icon-button color="warn" (click)="removeItem(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+      </mat-card>
+    </mat-list>
+  </mat-dialog-content>
+
+  <ng-template #emptyCart>
+    <p class="empty-cart">No items in cart.</p>
+  </ng-template>
+
+  <mat-card-actions align="end" class="cart-actions">
+    <button mat-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary">Continue</button>
+  </mat-card-actions>
+</mat-card>

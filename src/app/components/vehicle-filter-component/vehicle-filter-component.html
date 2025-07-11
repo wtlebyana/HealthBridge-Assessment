@@ -1,0 +1,38 @@
+<div style="padding-top:  4rem; padding-left: 4rem">
+  <mat-card style="height: 100%; " class="filter-card">
+    <mat-card-header>
+      <mat-card-title>
+        <p>MANUFACTURE</p>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Make</mat-label>
+        <mat-select [(ngModel)]="selectedMake" (selectionChange)="onMakeChange($event.value)">
+          <mat-option value="">Any</mat-option>
+          <mat-option *ngFor="let make of makes" [value]="make">{{ make }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Body</mat-label>
+        <mat-select [(ngModel)]="selectedBody" (selectionChange)="onBodyChange($event.value)">
+          <mat-option value="">Any</mat-option>
+          <mat-option *ngFor="let body of bodies" [value]="body">{{ body }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <h1>Price Range</h1>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Price To</mat-label>
+        <mat-select [(ngModel)]="selectedPrice" (selectionChange)="onPriceChange()">
+          <mat-option *ngFor="let price of prices"  [value]="price">{{ price.toString() }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-card-content>
+
+
+  </mat-card>
+</div>
