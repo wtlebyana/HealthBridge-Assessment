@@ -25,12 +25,18 @@
 
       <h1>Price Range</h1>
       <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Price To</mat-label>
-        <mat-select [(ngModel)]="selectedPrice" (selectionChange)="onPriceChange()">
-          <mat-option *ngFor="let price of prices"  [value]="price">{{ price.toString() }}</mat-option>
+        <mat-label>Price From</mat-label>
+        <mat-select [(ngModel)]="minPrice" (selectionChange)="onPriceChange()">
+          <mat-option *ngFor="let price of prices" [value]="price">{{ price }}</mat-option>
         </mat-select>
       </mat-form-field>
 
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Price To</mat-label>
+        <mat-select [(ngModel)]="maxPrice" (selectionChange)="onPriceChange()">
+          <mat-option *ngFor="let price of prices" [value]="price">{{ price }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </mat-card-content>
 
 
